@@ -1,0 +1,241 @@
+{
+  "hero": {
+    "title": "每个人都是带着摄像头的行走式计算机",
+    "subtitle": "记录、分享和探索彼此的独特视角，从而更全面地理解世界",
+    "description": "Memory Capsule 让你能够实时记录自己的所见所闻，与他人分享独特体验，探索来自世界各地的不同视角。",
+    "cta-primary": "免费下载",
+    "cta-secondary": "查看演示",
+    "stats": {
+      "users": "活跃用户",
+      "countries": "覆盖国家",
+      "perspectives": "分享视角"
+    }
+  },
+  "pain-points": {
+    "title": "你是否曾经有过这些困扰？",
+    "missed-moments": {
+      "title": "错过重要时刻",
+      "description": "当精彩瞬间发生时，来不及拿出相机或手机记录下来。"
+    },
+    "sharing-difficulty": {
+      "title": "难以分享体验",
+      "description": "想与朋友分享现场体验，但照片和视频无法完全传达你的感受。"
+    },
+    "limited-perspective": {
+      "title": "视角受限",
+      "description": "无法体验他人眼中的世界，了解不同地区、文化和背景的人们的日常生活。"
+    },
+    "memory-fading": {
+      "title": "记忆模糊",
+      "description": "随着时间流逝，珍贵的记忆变得模糊，细节逐渐被遗忘。"
+    }
+  },
+  "features": {
+    "title": "Memory Capsule 如何改变你的体验",
+    "recorder": {
+      "title": "视角记录仪",
+      "description": "随时开启'视角记录'功能，记录下你所见所闻，即使没有网络也能离线记录。"
+    },
+    "sharing": {
+      "title": "视角分享",
+      "description": "选择性地将特定时间段的视角分享给朋友或家人，让他们体验你的所见所闻。"
+    },
+    "explore": {
+      "title": "视角探索",
+      "description": "通过关键词搜索或地理位置筛选，探索来自世界各地的不同视角。"
+    },
+    "interaction": {
+      "title": "视角互动",
+      "description": "对喜欢的视角内容点赞评论，参与视角问答和挑战，与全球用户互动。"
+    },
+    "library": {
+      "title": "个人视角库",
+      "description": "将记录的视角进行分类整理，随时回顾过去的瞬间，找回珍贵的记忆。"
+    },
+    "panorama": {
+      "title": "360度全景视角",
+      "description": "支持360度全景视角记录和分享，让体验更加身临其境。"
+    },
+    "ar": {
+      "title": "AR视角增强",
+      "description": "在记录视角时添加虚拟元素，如文字、图像、动画等，丰富视角内容。"
+    },
+    "puzzle": {
+      "title": "视角拼图",
+      "description": "将多个视角拼接成完整画面，展示一个事件或场景的全貌。"
+    },
+    "memory-cloning": {
+      "title": "记忆克隆",
+      "description": "通过视角记录实现记忆的完整保存和共享，让珍贵时刻永不褪色，并可与他人分享体验。"
+    }
+  },
+  "how-it-works": {
+    "title": "Memory Capsule 如何运作",
+    "step1": {
+      "title": "下载并安装",
+      "description": "从App Store或Google Play下载Memory Capsule应用，并完成简单的账号注册。"
+    },
+    "step2": {
+      "title": "开始记录",
+      "description": "点击主界面上的'记录'按钮，即可开始记录你的视角。可选择普通模式或360度全景模式。"
+    },
+    "step3": {
+      "title": "编辑与增强",
+      "description": "记录完成后，可以对视角进行剪辑、添加AR元素、文字说明等，使内容更加丰富。"
+    },
+    "step4": {
+      "title": "分享或保存",
+      "description": "选择将视角分享给特定的人、发布到社区，或仅保存在个人视角库中。"
+    },
+    "step5": {
+      "title": "探索与互动",
+      "description": "浏览其他用户分享的视角，可以点赞、评论或参与视角挑战，与全球用户互动。"
+    }
+  },
+  "app-preview": {
+    "title": "App截图",
+    "features": {
+      "title": "核心功能展示",
+      "onboarding": {
+        "title": "炫酷的新手引导",
+        "description": "生动直观的引导流程，帮助新用户快速上手"
+      },
+      "paywall": {
+        "title": "订阅界面",
+        "description": "清晰展示订阅计划和会员专属功能"
+      },
+      "profile": {
+        "title": "个人资料",
+        "description": "展示个人视角库和分享历史"
+      },
+      "explore": {
+        "title": "视角探索",
+        "description": "发现全球用户分享的精彩视角"
+      }
+    },
+    "demo-button": "打开完整App演示"
+  },
+  "testimonials": {
+    "title": "用户怎么说",
+    "testimonial1": {
+      "text": "我在国外留学，通过Memory Capsule，我可以与家人分享我的日常生活，他们仿佛就在我身边。这款应用拉近了我们之间的距离。",
+      "author": "张明，留学生"
+    },
+    "testimonial2": {
+      "text": "作为一名旅行博主，Memory Capsule让我能够更真实地记录和分享我的旅行经历。360度全景功能特别棒，我的粉丝们都说感觉像亲自去了一样！",
+      "author": "李华，旅行博主"
+    },
+    "testimonial3": {
+      "text": "我用Memory Capsule记录了女儿的成长过程，从她学会走路到上学的第一天。这些视角记录比普通照片和视频更能捕捉到真实的感受，非常珍贵。",
+      "author": "王芳，家长"
+    },
+    "download-count": "已有 500,000+ 次下载"
+  },
+  "pricing": {
+    "title": "灵活的订阅计划",
+    "description": "选择最适合你的方案，开启全新的视角体验",
+    "limited-offer": "限时优惠：首次订阅可享",
+    "discount": "50% OFF",
+    "countdown": {
+      "days": "天",
+      "hours": "时",
+      "minutes": "分",
+      "seconds": "秒"
+    },
+    "free": {
+      "title": "免费版",
+      "period": "永久免费",
+      "feature1": "基础视角记录功能",
+      "feature2": "每天最多10分钟记录时长",
+      "feature3": "基础编辑功能",
+      "feature4": "最多分享给5位好友",
+      "feature5": "基础视角探索功能",
+      "cta": "立即下载"
+    },
+    "pro": {
+      "title": "专业版",
+      "period": "每月",
+      "feature1": "无限视角记录时长",
+      "feature2": "高清视频质量",
+      "feature3": "全部编辑功能",
+      "feature4": "无限好友分享",
+      "feature5": "360度全景视角",
+      "feature6": "AR视角增强",
+      "feature7": "视角拼图功能",
+      "feature8": "视角时间轴",
+      "cta": "立即订阅"
+    },
+    "family": {
+      "title": "家庭版",
+      "period": "每月",
+      "feature1": "包含专业版全部功能",
+      "feature2": "最多6个家庭成员账号",
+      "feature3": "家庭视角共享库",
+      "feature4": "家庭故事创建功能",
+      "feature5": "家庭位置共享",
+      "feature6": "高级隐私保护",
+      "cta": "立即订阅"
+    },
+    "popular-badge": "最受欢迎",
+    "guarantee": "7天无理由退款保证 | 随时可取消订阅"
+  },
+  "faq": {
+    "title": "常见问题",
+    "q1": "Memory Capsule 的视角记录会占用很多存储空间吗？",
+    "a1": "Memory Capsule 采用智能压缩技术，优化视角记录的存储方式。同时，你可以选择将内容存储在云端，减少本地存储压力。专业版和家庭版用户可享受无限云存储空间。",
+    "q2": "视角记录会消耗很多电量吗？",
+    "a2": "我们采用了低功耗模式，优化了电量消耗。你可以在设置中选择不同的记录质量，找到最适合你的平衡点。同时，应用支持智能录制，可在电量低时自动调整设置。",
+    "q3": "我的隐私安全吗？其他人能看到我的所有视角记录吗？",
+    "a3": "你对每一条视角记录都有完全的控制权。默认情况下，所有记录都是私密的，只有你自己可以查看。只有当你主动选择分享时，其他人才能看到。你可以精确控制谁能看到你的内容，何时可以看到，以及可以看到多长时间。",
+    "q4": "我可以在哪些设备上使用 Memory Capsule？",
+    "a4": "Memory Capsule 支持 iOS 和 Android 平台，适用于大多数智能手机和平板电脑。我们也在开发与智能眼镜兼容的版本，以提供更加便捷的视角记录体验。",
+    "q5": "如何升级到专业版或家庭版？",
+    "a5": "在应用内点击'个人资料' -> '订阅计划'，选择你想要的订阅计划并完成支付即可。订阅立即生效，你可以马上享受高级功能。",
+    "q6": "我可以将视角记录导出到其他应用吗？",
+    "a6": "是的，你可以将视角记录导出为标准视频或图片格式，方便在其他应用或平台上使用。专业版和家庭版用户可以导出更高质量的内容。"
+  },
+  "download": {
+    "title": "立即下载，开启全新视角",
+    "description": "通过 Memory Capsule，记录、分享和探索，重新认识你的世界",
+    "app-store": {
+      "download-on": "下载自",
+      "title": "App Store"
+    },
+    "google-play": {
+      "get-it-on": "下载自",
+      "title": "Google Play"
+    },
+    "scan-qr": "扫描二维码下载"
+  },
+  "footer": {
+    "product": {
+      "title": "产品",
+      "features": "功能",
+      "pricing": "价格",
+      "download": "下载",
+      "updates": "更新日志"
+    },
+    "company": {
+      "title": "公司",
+      "about": "关于我们",
+      "careers": "招贤纳士",
+      "press": "媒体报道",
+      "contact": "联系我们"
+    },
+    "resources": {
+      "title": "资源",
+      "blog": "博客",
+      "tutorials": "教程",
+      "community": "社区",
+      "developers": "开发者"
+    },
+    "legal": {
+      "title": "法律条款",
+      "terms": "使用条款",
+      "privacy": "隐私政策",
+      "cookies": "Cookie 政策",
+      "gdpr": "GDPR 合规"
+    },
+    "copyright": " 2023 Memory Capsule. All rights reserved."
+  }
+}

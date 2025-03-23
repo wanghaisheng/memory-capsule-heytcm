@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerspectiView - 设置</title>
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #50E3C2;
+            --accent-color: #B8E986;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-color: #FFFFFF;
+            --bg-alt: #F8F9FA;
+            --border-color: #E5E5E5;
+            --danger-color: #FF3B30;
+            
+            --font-main: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-alt);
+            color: var(--text-color);
+            line-height: 1.5;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Status Bar */
+        .status-bar {
+            height: 44px;
+            width: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+        }
+        
+        .status-bar-time {
+            font-weight: 600;
+        }
+        
+        .status-bar-icons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .status-bar-icon {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Settings Container */
+        .settings-container {
+            height: calc(100% - 44px);
+            width: 100%;
+            position: relative;
+            overflow-y: auto;
+        }
+        
+        /* Settings Header */
+        .settings-header {
+            padding: 20px 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+        }
+        
+        .back-btn {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-right: 16px;
+        }
+        
+        .page-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        /* Settings Sections */
+        .settings-section {
+            margin-bottom: 20px;
+            background-color: var(--bg-color);
+        }
+        
+        .section-header {
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+        
+        .section-content {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .settings-item {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-right: 12px;
+        }
+        
+        .item-icon.red {
+            background-color: var(--danger-color);
+        }
+        
+        .item-icon.green {
+            background-color: var(--secondary-color);
+        }
+        
+        .item-icon.yellow {
+            background-color: #FFCC00;
+        }
+        
+        .item-icon.purple {
+            background-color: #AF52DE;
+        }
+        
+        .item-text {
+            flex: 1;
+            font-size: 16px;
+        }
+        
+        .item-right {
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+        
+        .item-right .toggle {
+            position: relative;
+            width: 50px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: #e5e5e5;
+            transition: background-color 0.3s;
+        }
+        
+        .item-right .toggle.active {
+            background-color: var(--primary-color);
+        }
+        
+        .item-right .toggle::after {
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .item-right .toggle.active::after {
+            transform: translateX(20px);
+        }
+        
+        .chevron-right {
+            margin-left: 8px;
+            font-size: 14px;
+        }
+        
+        .item-badge {
+            background-color: var(--danger-color);
+            color: white;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-right: 8px;
+        }
+        
+        /* Bottom Section */
+        .bottom-section {
+            margin-top: 40px;
+            margin-bottom: 60px;
+            padding: 0 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logout-btn {
+            width: 100%;
+            padding: 14px 0;
+            background-color: #f8f8f8;
+            color: var(--danger-color);
+            text-align: center;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .app-version {
+            color: var(--text-light);
+            font-size: 12px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-bar-time">14:25</div>
+        <div class="status-bar-icons">
+            <div class="status-bar-icon">
+                <i class="fas fa-signal"></i>
+            </div>
+            <div class="status-bar-icon">
+                <i class="fas fa-wifi"></i>
+            </div>
+            <div class="status-bar-icon">
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="settings-container">
+        <!-- Settings Header -->
+        <div class="settings-header">
+            <div class="back-btn">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="page-title">设置</div>
+        </div>
+        
+        <!-- Account Section -->
+        <div class="settings-section">
+            <div class="section-header">账号</div>
+            <div class="section-content">
+                <div class="settings-item">
+                    <div class="item-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="item-text">个人资料</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="item-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="item-text">账号安全</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="item-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="item-text">会员与订阅</div>
+                    <div class="item-right">
+                        <div class="item-badge">专业版</div>
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Privacy Section -->
+        <div class="settings-section">
+            <div class="section-header">隐私与安全</div>
+            <div class="section-content">
+                <div class="settings-item">
+                    <div class="item-icon red">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="item-text">隐私设置</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="item-icon red">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <div class="item-text">视角隐私权限</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="item-icon red">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="item-text">云存储与备份</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Preference Section -->
+        <div class="settings-section">
+            <div class="section-header">偏好设置</div>
+            <div class="section-content">
+                <div class="settings-item">
+                    <div class="item-icon green">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="item-text">视角录制设置</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="item-icon yellow">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="item-text">通知设置</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="item-icon purple">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="item-text">语言设置</div>
+                    <div class="item-right">
+                        <span style="color: var(--text-light); margin-right: 8px;">简体中文</span>
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="item-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="item-text">深色模式</div>
+                    <div class="item-right">
+                        <div class="toggle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Support Section -->
+        <div class="settings-section">
+            <div class="section-header">支持</div>
+            <div class="section-content">
+                <div class="settings-item">
+                    <div class="item-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="item-text">使用帮助</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="item-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="item-text">联系客服</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="item-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="item-text">关于我们</div>
+                    <div class="item-right">
+                        <i class="fas fa-chevron-right chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <div class="logout-btn">退出登录</div>
+            <div class="app-version">Memory Capsule v1.2.3</div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggles = document.querySelectorAll('.toggle');
+            
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+            
+            // Back button takes us back to profile
+            document.querySelector('.back-btn').addEventListener('click', function() {
+                window.location.href = 'profile.html';
+            });
+            
+            // Add navigation to settings items
+            document.querySelectorAll('.settings-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const text = this.querySelector('.item-text').textContent;
+                    // Handle different settings options
+                    switch(text) {
+                        case '个人资料':
+                            window.location.href = 'profile.html';
+                            break;
+                        case '账号安全':
+                        case '会员与订阅':
+                        case '隐私设置':
+                        case '视角隐私权限':
+                        case '云存储与备份':
+                        case '视角录制设置':
+                        case '通知设置':
+                        case '语言设置':
+                        case '使用帮助':
+                        case '联系客服':
+                        case '关于我们':
+                            alert(text + ' 功能即将上线');
+                            break;
+                    }
+                });
+            });
+            
+            // Logout button
+            document.querySelector('.logout-btn').addEventListener('click', function() {
+                if (confirm('确定要退出登录吗？')) {
+                    alert('退出登录成功');
+                    window.location.href = 'home.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

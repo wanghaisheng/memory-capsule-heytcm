@@ -1,0 +1,241 @@
+{
+  "hero": {
+    "title": "Everyone is a Walking Computer with a Camera",
+    "subtitle": "Record, Share, and Explore Unique Perspectives to Better Understand the World",
+    "description": "Memory Capsule allows you to record what you see and hear in real-time, share unique experiences with others, and explore different perspectives from around the world.",
+    "cta-primary": "Download Free",
+    "cta-secondary": "Watch Demo",
+    "stats": {
+      "users": "Active Users",
+      "countries": "Countries",
+      "perspectives": "Shared Perspectives"
+    }
+  },
+  "pain-points": {
+    "title": "Have You Ever Experienced These Challenges?",
+    "missed-moments": {
+      "title": "Missing Important Moments",
+      "description": "Not having enough time to take out your camera or phone when amazing moments happen."
+    },
+    "sharing-difficulty": {
+      "title": "Difficulty Sharing Experiences",
+      "description": "Wanting to share live experiences with friends, but photos and videos don't fully convey your feelings."
+    },
+    "limited-perspective": {
+      "title": "Limited Perspective",
+      "description": "Unable to experience the world through others' eyes and understand the daily lives of people from different regions, cultures, and backgrounds."
+    },
+    "memory-fading": {
+      "title": "Fading Memories",
+      "description": "As time passes, precious memories become blurry, and details are gradually forgotten."
+    }
+  },
+  "features": {
+    "title": "How Memory Capsule Transforms Your Experience",
+    "recorder": {
+      "title": "Perspective Recorder",
+      "description": "Start the \"Perspective Recording\" feature anytime to capture what you see and hear, even offline without network connection."
+    },
+    "sharing": {
+      "title": "Perspective Sharing",
+      "description": "Selectively share specific timeframes of your perspective with friends or family, allowing them to experience what you see and hear."
+    },
+    "explore": {
+      "title": "Perspective Exploration",
+      "description": "Explore different perspectives from around the world through keyword searches or geographic location filters."
+    },
+    "interaction": {
+      "title": "Perspective Interaction",
+      "description": "Like and comment on perspective content you enjoy, participate in perspective Q&As and challenges, and interact with users globally."
+    },
+    "library": {
+      "title": "Personal Perspective Library",
+      "description": "Categorize and organize your recorded perspectives, revisit past moments anytime, and retrieve precious memories."
+    },
+    "panorama": {
+      "title": "360° Panoramic Perspective",
+      "description": "Support for 360° panoramic perspective recording and sharing for a more immersive experience."
+    },
+    "ar": {
+      "title": "AR Perspective Enhancement",
+      "description": "Add virtual elements such as text, images, animations, etc. when recording perspectives to enrich content."
+    },
+    "puzzle": {
+      "title": "Perspective Puzzle",
+      "description": "Connect multiple perspectives into a complete picture, showing the full view of an event or scene."
+    },
+    "memory-cloning": {
+      "title": "Memory Cloning",
+      "description": "Through perspective recording, achieve complete preservation and sharing of memories, ensuring precious moments never fade, and experiences can be shared with others."
+    }
+  },
+  "how-it-works": {
+    "title": "How Memory Capsule Works",
+    "step1": {
+      "title": "Download and Install",
+      "description": "Download the Memory Capsule app from the App Store or Google Play and complete a simple account registration."
+    },
+    "step2": {
+      "title": "Start Recording",
+      "description": "Click the \"Record\" button on the main interface to start recording your perspective. Choose between normal mode or 360° panoramic mode."
+    },
+    "step3": {
+      "title": "Edit and Enhance",
+      "description": "After recording, you can edit your perspective, add AR elements, text descriptions, etc., to make the content richer."
+    },
+    "step4": {
+      "title": "Share or Save",
+      "description": "Choose to share your perspective with specific people, post it to the community, or just save it in your personal perspective library."
+    },
+    "step5": {
+      "title": "Explore and Interact",
+      "description": "Browse perspectives shared by other users, like, comment, or participate in perspective challenges to interact with users worldwide."
+    }
+  },
+  "app-preview": {
+    "title": "App Screenshots",
+    "features": {
+      "title": "Core Feature Showcase",
+      "onboarding": {
+        "title": "Cool Onboarding",
+        "description": "Intuitive guidance process helping new users get started quickly"
+      },
+      "paywall": {
+        "title": "Subscription Interface",
+        "description": "Clearly displays subscription plans and member-exclusive features"
+      },
+      "profile": {
+        "title": "Profile",
+        "description": "Displays personal perspective library and sharing history"
+      },
+      "explore": {
+        "title": "Perspective Exploration",
+        "description": "Discover amazing perspectives shared by users worldwide"
+      }
+    },
+    "demo-button": "Open Full App Demo"
+  },
+  "testimonials": {
+    "title": "What Users Say",
+    "testimonial1": {
+      "text": "I'm studying abroad, and through Memory Capsule, I can share my daily life with my family as if they were right beside me. This app has shortened the distance between us.",
+      "author": "Zhang Ming, International Student"
+    },
+    "testimonial2": {
+      "text": "As a travel blogger, Memory Capsule allows me to record and share my travel experiences more authentically. The 360° panorama feature is especially great - my fans say it feels like they've actually been there!",
+      "author": "Li Hua, Travel Blogger"
+    },
+    "testimonial3": {
+      "text": "I used Memory Capsule to record my daughter's growth, from learning to walk to her first day of school. These perspective recordings capture the real feelings better than ordinary photos and videos, which is incredibly precious.",
+      "author": "Wang Fang, Parent"
+    },
+    "download-count": "500,000+ Downloads"
+  },
+  "pricing": {
+    "title": "Flexible Subscription Plans",
+    "description": "Choose the plan that suits you best and start a new perspective experience",
+    "limited-offer": "Limited Time Offer: First Subscription Gets",
+    "discount": "50% OFF",
+    "countdown": {
+      "days": "days",
+      "hours": "hrs",
+      "minutes": "min",
+      "seconds": "sec"
+    },
+    "free": {
+      "title": "Free Plan",
+      "period": "Forever Free",
+      "feature1": "Basic perspective recording",
+      "feature2": "Up to 10 minutes recording time per day",
+      "feature3": "Basic editing features",
+      "feature4": "Share with up to 5 friends",
+      "feature5": "Basic perspective exploration",
+      "cta": "Download Now"
+    },
+    "pro": {
+      "title": "Pro Plan",
+      "period": "per month",
+      "feature1": "Unlimited recording time",
+      "feature2": "HD video quality",
+      "feature3": "All editing features",
+      "feature4": "Unlimited friend sharing",
+      "feature5": "360° panoramic perspective",
+      "feature6": "AR perspective enhancement",
+      "feature7": "Perspective puzzle function",
+      "feature8": "Perspective timeline",
+      "cta": "Subscribe Now"
+    },
+    "family": {
+      "title": "Family Plan",
+      "period": "per month",
+      "feature1": "Includes all Pro features",
+      "feature2": "Up to 6 family member accounts",
+      "feature3": "Family perspective sharing library",
+      "feature4": "Family story creation",
+      "feature5": "Family location sharing",
+      "feature6": "Advanced privacy protection",
+      "cta": "Subscribe Now"
+    },
+    "popular-badge": "Most Popular",
+    "guarantee": "7-Day Money-Back Guarantee | Cancel Anytime"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "Will perspective recording in Memory Capsule use a lot of storage space?",
+    "a1": "Memory Capsule uses intelligent compression technology to optimize how perspectives are stored. You can also choose to store content in the cloud to reduce local storage pressure. Pro and Family plan users enjoy unlimited cloud storage space.",
+    "q2": "Does perspective recording consume a lot of battery?",
+    "a2": "We've implemented low-power mode to optimize battery consumption. You can select different recording qualities in settings to find the right balance for you. The app also supports intelligent recording, automatically adjusting settings when battery is low.",
+    "q3": "Is my privacy secure? Can others see all my perspective recordings?",
+    "a3": "You have complete control over each perspective recording. By default, all recordings are private and only visible to you. Others can only see them when you actively choose to share. You can precisely control who can see your content, when they can see it, and how long they can see it.",
+    "q4": "On which devices can I use Memory Capsule?",
+    "a4": "Memory Capsule supports iOS and Android platforms and is compatible with most smartphones and tablets. We're also developing a version compatible with smart glasses to provide a more convenient perspective recording experience.",
+    "q5": "How do I upgrade to Pro or Family plan?",
+    "a5": "In the app, click \"Profile\" -> \"Subscription Plans\", select the subscription plan you want, and complete the payment. The subscription takes effect immediately, and you can enjoy premium features right away.",
+    "q6": "Can I export perspective recordings to other applications?",
+    "a6": "Yes, you can export perspective recordings to standard video or image formats for use in other applications or platforms. Pro and Family plan users can export higher quality content."
+  },
+  "download": {
+    "title": "Download Now, Start a New Perspective",
+    "description": "Through Memory Capsule, record, share, and explore to rediscover your world",
+    "app-store": {
+      "download-on": "Download on",
+      "title": "App Store"
+    },
+    "google-play": {
+      "get-it-on": "Get it on",
+      "title": "Google Play"
+    },
+    "scan-qr": "Scan QR Code to Download"
+  },
+  "footer": {
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "download": "Download",
+      "updates": "Update Log"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About Us",
+      "careers": "Careers",
+      "press": "Press",
+      "contact": "Contact Us"
+    },
+    "resources": {
+      "title": "Resources",
+      "blog": "Blog",
+      "tutorials": "Tutorials",
+      "community": "Community",
+      "developers": "Developers"
+    },
+    "legal": {
+      "title": "Legal",
+      "terms": "Terms of Use",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "gdpr": "GDPR Compliance"
+    },
+    "copyright": " 2023 Memory Capsule. All rights reserved."
+  }
+}

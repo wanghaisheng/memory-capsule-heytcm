@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerspectiView - 视角记录</title>
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #50E3C2;
+            --accent-color: #B8E986;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-color: #FFFFFF;
+            --bg-alt: #F8F9FA;
+            --border-color: #E5E5E5;
+            --record-red: #FF3B30;
+            
+            --font-main: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: #000;
+            color: var(--text-color);
+            line-height: 1.5;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Status Bar */
+        .status-bar {
+            height: 44px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        
+        .status-bar-time {
+            font-weight: 600;
+            color: white;
+        }
+        
+        .status-bar-icons {
+            display: flex;
+            gap: 8px;
+            color: white;
+        }
+        
+        .status-bar-icon {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Camera View */
+        .camera-view {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #000;
+        }
+        
+        .camera-preview {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        
+        /* Camera Controls */
+        .camera-controls {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 40px;
+            color: white;
+        }
+        
+        .controls-top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            margin-top: 60px;
+        }
+        
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .controls-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 30px;
+            margin-top: auto;
+        }
+        
+        .switch-camera-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .record-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--record-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .record-btn::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        
+        .record-btn.recording::after {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        .record-modes {
+            position: absolute;
+            bottom: 140px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .mode-btn {
+            padding: 8px 16px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .mode-btn.active {
+            background-color: var(--primary-color);
+        }
+        
+        /* Recording Info */
+        .recording-info {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            z-index: 2;
+            display: none;
+        }
+        
+        .recording-info.active {
+            display: flex;
+        }
+        
+        .recording-timer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .recording-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--record-red);
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        /* AR Controls */
+        .ar-controls {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 2;
+        }
+        
+        .ar-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+        
+        /* Gallery Preview */
+        .gallery-preview {
+            position: absolute;
+            left: 16px;
+            bottom: 100px;
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid white;
+            z-index: 2;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-bar-time">14:25</div>
+        <div class="status-bar-icons">
+            <div class="status-bar-icon">
+                <i class="fas fa-signal"></i>
+            </div>
+            <div class="status-bar-icon">
+                <i class="fas fa-wifi"></i>
+            </div>
+            <div class="status-bar-icon">
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Camera View -->
+    <div class="camera-view">
+        <!-- Camera Preview (Simulated) -->
+        <div class="camera-preview">
+            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a" alt="Camera Preview" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <!-- Recording Info -->
+        <div class="recording-info">
+            <div class="recording-timer">
+                <div class="recording-dot"></div>
+                <span>00:32</span>
+            </div>
+        </div>
+        
+        <!-- Camera Controls -->
+        <div class="camera-controls">
+            <div class="controls-top">
+                <div class="control-btn" id="close-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="control-btn" id="settings-btn">
+                    <i class="fas fa-cog"></i>
+                </div>
+            </div>
+            
+            <div class="record-modes">
+                <div class="mode-btn">普通</div>
+                <div class="mode-btn active">360°全景</div>
+                <div class="mode-btn">AR增强</div>
+            </div>
+            
+            <div class="controls-bottom">
+                <div class="gallery-preview">
+                    <svg width="100%" height="100%" viewBox="0 0 60 60">
+                        <rect width="100%" height="100%" fill="#333" />
+                        <circle cx="30" cy="20" r="10" fill="#777" />
+                        <rect x="10" y="35" width="40" height="15" fill="#555" />
+                    </svg>
+                </div>
+                
+                <div class="record-btn"></div>
+                
+                <div class="switch-camera-btn">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- AR Controls -->
+        <div class="ar-controls">
+            <div class="ar-btn">
+                <i class="fas fa-text-height"></i>
+            </div>
+            <div class="ar-btn">
+                <i class="fas fa-smile"></i>
+            </div>
+            <div class="ar-btn">
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="ar-btn">
+                <i class="fas fa-magic"></i>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const recordBtn = document.querySelector('.record-btn');
+            const recordingInfo = document.querySelector('.recording-info');
+            
+            recordBtn.addEventListener('click', function() {
+                this.classList.toggle('recording');
+                recordingInfo.classList.toggle('active');
+                
+                if (this.classList.contains('recording')) {
+                    alert('开始录制');
+                } else {
+                    alert('录制结束，视频已保存');
+                    // Optionally navigate to the profile page after recording
+                    // window.location.href = 'profile.html';
+                }
+            });
+            
+            const modeBtns = document.querySelectorAll('.mode-btn');
+            
+            modeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    modeBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    alert('已切换到' + this.textContent + '模式');
+                });
+            });
+            
+            // Close button takes us back to previous page
+            document.getElementById('close-btn').addEventListener('click', function() {
+                window.history.back();
+            });
+            
+            // Settings button
+            document.getElementById('settings-btn').addEventListener('click', function() {
+                alert('录制设置功能即将上线');
+            });
+            
+            // Switch camera button
+            document.querySelector('.switch-camera-btn').addEventListener('click', function() {
+                alert('切换摄像头成功');
+            });
+            
+            // Gallery preview
+            document.querySelector('.gallery-preview').addEventListener('click', function() {
+                window.location.href = 'profile.html';
+            });
+            
+            // AR controls
+            document.querySelectorAll('.ar-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    alert('AR功能即将上线');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

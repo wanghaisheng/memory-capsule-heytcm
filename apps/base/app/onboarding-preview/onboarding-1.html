@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerspectiView - 新手引导</title>
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #50E3C2;
+            --accent-color: #B8E986;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-color: #FFFFFF;
+            
+            --font-main: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Status Bar */
+        .status-bar {
+            height: 44px;
+            width: 100%;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        
+        .status-bar-time {
+            font-weight: 600;
+            color: white;
+        }
+        
+        .status-bar-icons {
+            display: flex;
+            gap: 8px;
+            color: white;
+        }
+        
+        .status-bar-icon {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Onboarding */
+        .onboarding-container {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .onboarding-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 20px;
+            padding-top: 60px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .onboarding-logo {
+            margin-bottom: 40px;
+            width: 120px;
+            height: 120px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .onboarding-waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M0,192L60,176C120,160,240,128,360,128C480,128,600,160,720,160C840,160,960,128,1080,112C1200,96,1320,96,1380,96L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: 100% 100px;
+            background-repeat: no-repeat;
+            animation: wave-animation 10s linear infinite;
+        }
+        
+        .wave:nth-child(2) {
+            bottom: 10px;
+            opacity: 0.5;
+            animation: wave-animation 7s linear infinite;
+        }
+        
+        .wave:nth-child(3) {
+            bottom: 20px;
+            opacity: 0.2;
+            animation: wave-animation 5s linear infinite;
+        }
+        
+        @keyframes wave-animation {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 1440px;
+            }
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            display: block;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float-up 15s linear infinite;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        .onboarding-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        
+        .onboarding-description {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 320px;
+        }
+        
+        .onboarding-progress {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .progress-dot.active {
+            background-color: white;
+        }
+        
+        .onboarding-btn {
+            padding: 16px 40px;
+            background-color: white;
+            color: var(--primary-color);
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .onboarding-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .skip-btn {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+        
+        .skip-btn:hover {
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-bar-time">14:25</div>
+        <div class="status-bar-icons">
+            <div class="status-bar-icon">
+                <i class="fas fa-signal"></i>
+            </div>
+            <div class="status-bar-icon">
+                <i class="fas fa-wifi"></i>
+            </div>
+            <div class="status-bar-icon">
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="onboarding-container">
+        <!-- Background Waves & Particles -->
+        <div class="onboarding-waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        
+        <div class="particles">
+            <!-- Generated dynamically via JavaScript -->
+        </div>
+        
+        <!-- Onboarding Content -->
+        <div class="onboarding-content">
+            <div class="onboarding-logo">
+                <i class="fas fa-video"></i>
+            </div>
+            
+            <h1 class="onboarding-title">记录你的世界</h1>
+            <p class="onboarding-description">Memory Capsule 让你能够随时记录你所见所闻，与他人分享你的独特视角</p>
+            
+            <div class="onboarding-progress">
+                <div class="progress-dot active"></div>
+            </div>
+            <!-- Rest of the onboarding content -->
+            <button class="onboarding-btn">Next</button>
+            <button class="skip-btn">Skip</button>
+        </div>
+    </div>
+</body>
+</html>

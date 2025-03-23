@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerspectiView - 个人资料</title>
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #50E3C2;
+            --accent-color: #B8E986;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-color: #FFFFFF;
+            --bg-alt: #F8F9FA;
+            --border-color: #E5E5E5;
+            
+            --font-main: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Status Bar */
+        .status-bar {
+            height: 44px;
+            width: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+        }
+        
+        .status-bar-time {
+            font-weight: 600;
+        }
+        
+        .status-bar-icons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .status-bar-icon {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            height: calc(100% - 94px); /* 100% - statusBar - tabBar */
+            overflow-y: auto;
+            padding: 16px;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .settings-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            font-size: 18px;
+        }
+        
+        /* Profile */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            margin-right: 16px;
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .profile-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .profile-bio {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .profile-stats {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stat-value {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .edit-profile-btn {
+            padding: 8px 16px;
+            background-color: var(--bg-alt);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-size: 14px;
+            font-family: var(--font-main);
+            cursor: pointer;
+        }
+        
+        /* Membership */
+        .membership-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 12px;
+            padding: 16px;
+            color: white;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .membership-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+        }
+        
+        .membership-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .membership-type {
+            font-size: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .membership-type i {
+            color: #FFD700;
+        }
+        
+        .membership-benefits {
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .membership-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        /* Tabs */
+        .profile-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 16px;
+        }
+        
+        .profile-tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 16px;
+            cursor: pointer;
+            color: var(--text-light);
+            position: relative;
+        }
+        
+        .profile-tab.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .profile-tab.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        /* Perspective Grid */
+        .perspective-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+        
+        .perspective-item {
+            aspect-ratio: 1 / 1;
+            position: relative;
+        }
+        
+        .perspective-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .perspective-overlay {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 3px;
+            padding: 2px 5px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        /* Tab Bar */
+        .tab-bar {
+            height: 50px;
+            width: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+        }
+        
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 60px;
+        }
+        
+        .tab-item.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-icon {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+        
+        .tab-label {
+            font-size: 10px;
+        }
+        
+        /* Record Button */
+        .record-btn-container {
+            position: fixed;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+        
+        .record-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-bar-time">14:25</div>
+        <div class="status-bar-icons">
+            <div class="status-bar-icon">
+                <i class="fas fa-signal"></i>
+            </div>
+            <div class="status-bar-icon">
+                <i class="fas fa-wifi"></i>
+            </div>
+            <div class="status-bar-icon">
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="page-title">我的</div>
+            <div class="settings-icon">
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+        
+        <!-- Profile -->
+        <div class="profile-header">
+            <div class="profile-avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330'); background-size: cover; background-position: center; display: block; color: transparent;"></div>
+            <div class="profile-info">
+                <div class="profile-name">张小明</div>
+                <div class="profile-bio">热爱摄影与旅行的探险家</div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">128</div>
+                        <div class="stat-label">视角</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">834</div>
+                        <div class="stat-label">关注者</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">267</div>
+                        <div class="stat-label">关注中</div>
+                    </div>
+                </div>
+            </div>
+            <button class="edit-profile-btn">编辑</button>
+        </div>
+        
+        <!-- Membership -->
+        <div class="membership-card">
+            <div class="membership-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="membership-title">Memory Capsule</div>
+            <div class="membership-type">
+                <i class="fas fa-star"></i>
+                <span>专业版会员</span>
+            </div>
+            <div class="membership-benefits">
+                无限视角记录 • 高清视频质量 • 360°全景视角 • AR视角增强
+            </div>
+            <button class="membership-btn">续费会员</button>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="profile-tabs">
+            <div class="profile-tab active">我的视角</div>
+            <div class="profile-tab">收藏</div>
+            <div class="profile-tab">喜欢</div>
+        </div>
+        
+        <!-- Perspective Grid -->
+        <div class="perspective-grid">
+            <div class="perspective-item">
+                <img src="https://images.unsplash.com/photo-1516298773066-c48f8e9bd92b" alt="登山视角" class="perspective-thumbnail">
+                <div class="perspective-overlay">
+                    <i class="fas fa-eye"></i>
+                    <span>2.3k</span>
+                </div>
+            </div>
+            <div class="perspective-item">
+                <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a" alt="海滩视角" class="perspective-thumbnail">
+                <div class="perspective-overlay">
+                    <i class="fas fa-eye"></i>
+                    <span>1.8k</span>
+                </div>
+            </div>
+            <div class="perspective-item">
+                <img src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd" alt="城市视角" class="perspective-thumbnail">
+                <div class="perspective-overlay">
+                    <i class="fas fa-eye"></i>
+                    <span>1.5k</span>
+                </div>
+            </div>
+            <div class="perspective-item">
+                <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000" alt="海洋视角" class="perspective-thumbnail">
+                <div class="perspective-overlay">
+                    <i class="fas fa-eye"></i>
+                    <span>3.2k</span>
+                </div>
+            </div>
+            <div class="perspective-item">
+                <img src="https://images.unsplash.com/photo-1515553836147-1394d7a3db0a" alt="生日派对" class="perspective-thumbnail">
+                <div class="perspective-overlay">
+                    <i class="fas fa-eye"></i>
+                    <span>986</span>
+                </div>
+            </div>
+            <div class="perspective-item">
+                <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70" alt="图书馆学习" class="perspective-thumbnail">
+                <div class="perspective-overlay">
+                    <i class="fas fa-eye"></i>
+                    <span>754</span>
+                </div>
+            </div>
+            <div class="perspective-item">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="自然风景" class="perspective-thumbnail">
+                <div class="perspective-overlay">
+                    <i class="fas fa-eye"></i>
+                    <span>1.1k</span>
+                </div>
+            </div>
+            <div class="perspective-item">
+                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3" alt="音乐会" class="perspective-thumbnail">
+                <div class="perspective-overlay">
+                    <i class="fas fa-eye"></i>
+                    <span>879</span>
+                </div>
+            </div>
+            <div class="perspective-item">
+                <img src="https://images.unsplash.com/photo-1505826759037-406b40388009" alt="厨房烹饪" class="perspective-thumbnail">
+                <div class="perspective-overlay">
+                    <i class="fas fa-eye"></i>
+                    <span>703</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Record Button -->
+    <div class="record-btn-container">
+        <div class="record-btn">
+            <i class="fas fa-video"></i>
+        </div>
+    </div>
+    
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+        <div class="tab-item">
+            <div class="tab-icon">
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="tab-label">首页</div>
+        </div>
+        <div class="tab-item">
+            <div class="tab-icon">
+                <i class="fas fa-compass"></i>
+            </div>
+            <div class="tab-label">探索</div>
+        </div>
+        <div class="tab-item tab-placeholder"></div>
+        <div class="tab-item">
+            <div class="tab-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="tab-label">互动</div>
+        </div>
+        <div class="tab-item active">
+            <div class="tab-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="tab-label">我的</div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab bar navigation
+            const tabItems = document.querySelectorAll('.tab-bar .tab-item');
+            tabItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const label = this.querySelector('.tab-label').textContent;
+                    switch(label) {
+                        case '首页':
+                            window.location.href = 'home.html';
+                            break;
+                        case '探索':
+                            window.location.href = 'explore.html';
+                            break;
+                        case '互动':
+                            window.location.href = 'community.html';
+                            break;
+                        case '我的':
+                            // Already on profile page
+                            break;
+                    }
+                });
+            });
+            
+            // Profile tabs
+            const profileTabs = document.querySelectorAll('.profile-tab');
+            profileTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    profileTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Record button leads to record page
+            document.querySelector('.record-btn').addEventListener('click', function() {
+                window.location.href = 'record.html';
+            });
+            
+            // Settings icon leads to settings page
+            document.querySelector('.settings-icon').addEventListener('click', function() {
+                window.location.href = 'settings.html';
+            });
+            
+            // Edit profile button
+            document.querySelector('.edit-profile-btn').addEventListener('click', function() {
+                alert('编辑资料功能即将上线');
+            });
+            
+            // Membership renewal
+            document.querySelector('.membership-btn').addEventListener('click', function() {
+                alert('会员续费功能即将上线');
+            });
+            
+            // Perspective items
+            document.querySelectorAll('.perspective-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    alert('视角详情页即将上线');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

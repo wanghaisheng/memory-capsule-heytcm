@@ -1,132 +1,642 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="keywords" content="mobile, simulator, mobile design, mobile app">
-  <meta name="author" content="Your Name or Company">
-  <meta http-equiv="Content-Language" content="en">
-
-  <!-- Canonical Link -->
-  <link rel="canonical" href="https://www.yourwebsite.com/pc-simulator" />
-
-  <!-- Open Graph for Social Media -->
-  <meta property="og:title" content="PC Simulator">
-  <meta property="og:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta property="og:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta property="og:url" content="https://www.yourwebsite.com/pc-simulator">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PC Simulator">
-  <meta name="twitter:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="twitter:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta name="twitter:creator" content="@yourtwitterhandle">
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://www.yourwebsite.com/favicon.ico" type="image/x-icon">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXX-Y');
-  </script>
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y) {
-      window.clarity=window.clarity||function(){(clarity.q=clarity.q||[]).push(arguments)};
-      clarity('set', 'anonymizeIP', true);
-      i=l.createElement('script');i.async=1;i.src=r;i.type='text/javascript';
-      t=l.getElementsByTagName('script')[0];t.parentNode.insertBefore(i,t);
-    })(document,window,'script','https://www.clarity.ms/tag/XXXXXX');
-  </script>
-
-  <title>PC Simulator</title>
-
-  <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    .mobile-container {
-      width: 360px;
-      height: 640px;
-      border: 16px solid black;
-      border-radius: 16px;
-      background-color: #fff;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .content {
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    /* Adjustments for PC */
-    @media (min-width: 768px) {
-      .mobile-container {
-        width: 600px;
-        height: 1000px;
-      }
-
-      .content {
-        font-size: 1.5rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .mobile-container {
-        width: 800px;
-        height: 1400px;
-      }
-
-      .content {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* Additional responsiveness for larger screens */
-    @media (min-width: 1200px) {
-      body {
-        justify-content: flex-start;
-      }
-
-      .mobile-container {
-        margin-top: 50px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Capsule - 探索世界的新视角</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="PerspectiView - 记录、分享和探索彼此的独特视角，从而更全面地理解世界">
 </head>
-
 <body>
-  <div class="mobile-container">
-    <div class="content">
-      <p>Mobile Simulator Screen</p>
-      <p>PC Version: Adjusted for larger screens.</p>
-    </div>
-  </div>
-</body>
+    <header class="hero">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <svg viewBox="0 0 200 50" class="logo-svg">
+                        <path d="M20,10 C30,5 40,5 50,10 C60,15 70,15 80,10" stroke="#4A90E2" stroke-width="3" fill="none"/>
+                        <path d="M20,20 C30,15 40,15 50,20 C60,25 70,25 80,20" stroke="#50E3C2" stroke-width="3" fill="none"/>
+                        <path d="M20,30 C30,25 40,25 50,30 C60,35 70,35 80,30" stroke="#B8E986" stroke-width="3" fill="none"/>
+                        <text x="90" y="30" font-family="Arial" font-size="20" font-weight="bold" fill="#333">Memory Capsule</text>
+                    </svg>
+                </div>
+                <div class="nav-items">
+                    <a href="#features" class="nav-link">功能</a>
+                    <a href="#how-it-works" class="nav-link">工作原理</a>
+                    <a href="#testimonials" class="nav-link">用户评价</a>
+                    <a href="#pricing" class="nav-link">价格</a>
+                    <a href="#faq" class="nav-link">常见问题</a>
+                    <div class="language-selector">
+                        <select id="language-select" aria-label="选择语言">
+                            <option value="zh">中文</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" aria-label="菜单">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
 
+        <div class="hero-content container">
+            <div class="hero-text">
+                <h1 data-i18n="hero.title">每个人都是带着摄像头的行走式计算机</h1>
+                <h2 data-i18n="hero.subtitle">记录、分享和探索彼此的独特视角，从而更全面地理解世界</h2>
+                <p data-i18n="hero.description">PerspectiView 让你能够实时记录自己的所见所闻，与他人分享独特体验，探索来自世界各地的不同视角。</p>
+                <div class="cta-buttons">
+                    <a href="#download" class="btn btn-primary" data-i18n="hero.cta-primary">免费下载</a>
+                    <a href="#demo" class="btn btn-secondary" data-i18n="hero.cta-secondary">查看演示</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <video autoplay loop muted playsinline class="hero-video">
+                                <source src="#" type="video/mp4">
+                                您的浏览器不支持视频标签。
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-stats container">
+            <div class="stat-item">
+                <div class="stat-number">100,000+</div>
+                <div class="stat-label" data-i18n="hero.stats.users">活跃用户</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label" data-i18n="hero.stats.countries">覆盖国家</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1,000,000+</div>
+                <div class="stat-label" data-i18n="hero.stats.perspectives">分享视角</div>
+            </div>
+        </div>
+    </header>
+
+    <section id="pain-points" class="pain-points">
+        <div class="container">
+            <h2 class="section-title" data-i18n="pain-points.title">你是否曾经有过这些困扰？</h2>
+            <div class="pain-points-grid">
+                <div class="pain-point-card">
+                    <div class="pain-point-icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h3 data-i18n="pain-points.missed-moments.title">错过重要时刻</h3>
+                    <p data-i18n="pain-points.missed-moments.description">当精彩瞬间发生时，来不及拿出相机或手机记录下来。</p>
+                </div>
+                <div class="pain-point-card">
+                    <div class="pain-point-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3 data-i18n="pain-points.sharing-difficulty.title">难以分享体验</h3>
+                    <p data-i18n="pain-points.sharing-difficulty.description">想与朋友分享现场体验，但照片和视频无法完全传达你的感受。</p>
+                </div>
+                <div class="pain-point-card">
+                    <div class="pain-point-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 data-i18n="pain-points.limited-perspective.title">视角受限</h3>
+                    <p data-i18n="pain-points.limited-perspective.description">无法体验他人眼中的世界，了解不同地区、文化和背景的人们的日常生活。</p>
+                </div>
+                <div class="pain-point-card">
+                    <div class="pain-point-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <h3 data-i18n="pain-points.memory-fading.title">记忆模糊</h3>
+                    <p data-i18n="pain-points.memory-fading.description">随着时间流逝，珍贵的记忆变得模糊，细节逐渐被遗忘。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features.title">PerspectiView 如何改变你的体验</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 data-i18n="features.recorder.title">视角记录仪</h3>
+                    <p data-i18n="features.recorder.description">随时开启"视角记录"功能，记录下你所见所闻，即使没有网络也能离线记录。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-share-square"></i>
+                    </div>
+                    <h3 data-i18n="features.sharing.title">视角分享</h3>
+                    <p data-i18n="features.sharing.description">选择性地将特定时间段的视角分享给朋友或家人，让他们体验你的所见所闻。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3 data-i18n="features.explore.title">视角探索</h3>
+                    <p data-i18n="features.explore.description">通过关键词搜索或地理位置筛选，探索来自世界各地的不同视角。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 data-i18n="features.interaction.title">视角互动</h3>
+                    <p data-i18n="features.interaction.description">对喜欢的视角内容点赞评论，参与视角问答和挑战，与全球用户互动。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-archive"></i>
+                    </div>
+                    <h3 data-i18n="features.library.title">个人视角库</h3>
+                    <p data-i18n="features.library.description">将记录的视角进行分类整理，随时回顾过去的瞬间，找回珍贵的记忆。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h3 data-i18n="features.panorama.title">360度全景视角</h3>
+                    <p data-i18n="features.panorama.description">支持360度全景视角记录和分享，让体验更加身临其境。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 data-i18n="features.ar.title">AR视角增强</h3>
+                    <p data-i18n="features.ar.description">在记录视角时添加虚拟元素，如文字、图像、动画等，丰富视角内容。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 data-i18n="features.puzzle.title">视角拼图</h3>
+                    <p data-i18n="features.puzzle.description">将多个视角拼接成完整画面，展示一个事件或场景的全貌。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 data-i18n="features.memory-cloning.title">记忆克隆</h3>
+                    <p data-i18n="features.memory-cloning.description">通过视角记录实现记忆的完整保存和共享，让珍贵时刻永不褪色，并可与他人分享体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title" data-i18n="how-it-works.title">PerspectiView 如何运作</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 data-i18n="how-it-works.step1.title">下载并安装</h3>
+                        <p data-i18n="how-it-works.step1.description">从App Store或Google Play下载PerspectiView应用，并完成简单的账号注册。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 data-i18n="how-it-works.step2.title">开始记录</h3>
+                        <p data-i18n="how-it-works.step2.description">点击主界面上的"记录"按钮，即可开始记录你的视角。可选择普通模式或360度全景模式。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 data-i18n="how-it-works.step3.title">编辑与增强</h3>
+                        <p data-i18n="how-it-works.step3.description">记录完成后，可以对视角进行剪辑、添加AR元素、文字说明等，使内容更加丰富。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 data-i18n="how-it-works.step4.title">分享或保存</h3>
+                        <p data-i18n="how-it-works.step4.description">选择将视角分享给特定的人、发布到社区，或仅保存在个人视角库中。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 data-i18n="how-it-works.step5.title">探索与互动</h3>
+                        <p data-i18n="how-it-works.step5.description">浏览其他用户分享的视角，可以点赞、评论或参与视角挑战，与全球用户互动。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="app-preview" class="app-preview">
+        <div class="container">
+            <h2 class="section-title" data-i18n="app-preview.title">App截图</h2>
+            <div class="app-showcase">
+                <div class="app-frame-container">
+                    <div class="app-frame">
+                        <h3>基础风格</h3>
+                        <p>简洁现代的UI设计，以蓝色和白色为主色调，符合大多数用户的审美偏好</p>
+                        <iframe src="apps/base/app/home.html" title="App 基础风格预览" class="app-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="app-features-preview">
+                <h3 data-i18n="app-preview.features.title">核心功能展示</h3>
+                <div class="app-features-grid">
+                    <div class="app-feature-card">
+                        <div class="app-feature-image">
+                            <iframe src="apps/base/app/onboarding-preview/onboarding-1.html" title="新手引导预览" class="feature-iframe"></iframe>
+                        </div>
+                        <h4 data-i18n="app-preview.features.onboarding.title">炫酷的新手引导</h4>
+                        <p data-i18n="app-preview.features.onboarding.description">生动直观的引导流程，帮助新用户快速上手</p>
+                    </div>
+                    <div class="app-feature-card">
+                        <div class="app-feature-image">
+                            <iframe src="apps/base/app/paywall-preview/paywall.html" title="订阅界面预览" class="feature-iframe"></iframe>
+                        </div>
+                        <h4 data-i18n="app-preview.features.paywall.title">订阅界面</h4>
+                        <p data-i18n="app-preview.features.paywall.description">清晰展示订阅计划和会员专属功能</p>
+                    </div>
+                    <div class="app-feature-card">
+                        <div class="app-feature-image">
+                            <iframe src="apps/base/app/profile.html" title="个人资料页面预览" class="feature-iframe"></iframe>
+                        </div>
+                        <h4 data-i18n="app-preview.features.profile.title">个人资料</h4>
+                        <p data-i18n="app-preview.features.profile.description">展示个人视角库和分享历史</p>
+                    </div>
+                    <div class="app-feature-card">
+                        <div class="app-feature-image">
+                            <iframe src="apps/base/app/explore.html" title="探索页面预览" class="feature-iframe"></iframe>
+                        </div>
+                        <h4 data-i18n="app-preview.features.explore.title">视角探索</h4>
+                        <p data-i18n="app-preview.features.explore.description">发现全球用户分享的精彩视角</p>
+                    </div>
+                </div>
+                <div class="app-demo-button">
+                    <a href="#" class="btn btn-primary" data-i18n="app-preview.demo-button">打开完整App演示</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-i18n="testimonials.title">用户怎么说</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="用户头像" loading="lazy">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text" data-i18n="testimonials.testimonial1.text">
+                            "我在国外留学，通过PerspectiView，我可以与家人分享我的日常生活，他们仿佛就在我身边。这款应用拉近了我们之间的距离。"
+                        </p>
+                        <div class="testimonial-author" data-i18n="testimonials.testimonial1.author">张明，留学生</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="用户头像" loading="lazy">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text" data-i18n="testimonials.testimonial2.text">
+                            "作为一名旅行博主，PerspectiView让我能够更真实地记录和分享我的旅行经历。360度全景功能特别棒，我的粉丝们都说感觉像亲自去了一样！"
+                        </p>
+                        <div class="testimonial-author" data-i18n="testimonials.testimonial2.author">李华，旅行博主</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="用户头像" loading="lazy">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text" data-i18n="testimonials.testimonial3.text">
+                            "我用PerspectiView记录了女儿的成长过程，从她学会走路到上学的第一天。这些视角记录比普通照片和视频更能捕捉到真实的感受，非常珍贵。"
+                        </p>
+                        <div class="testimonial-author" data-i18n="testimonials.testimonial3.author">王芳，家长</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-social-proof">
+                <div class="app-ratings">
+                    <div class="app-store-rating">
+                        <i class="fab fa-apple"></i>
+                        <span class="rating-text">App Store <strong>4.8</strong>/5</span>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="google-play-rating">
+                        <i class="fab fa-google-play"></i>
+                        <span class="rating-text">Google Play <strong>4.7</strong>/5</span>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="download-count">
+                    <i class="fas fa-download"></i>
+                    <span data-i18n="testimonials.download-count">已有 500,000+ 次下载</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title" data-i18n="pricing.title">灵活的订阅计划</h2>
+            <p class="section-description" data-i18n="pricing.description">选择最适合你的方案，开启全新的视角体验</p>
+            
+            <div class="pricing-countdown">
+                <div class="countdown-label" data-i18n="pricing.limited-offer">限时优惠：首次订阅可享</div>
+                <div class="discount-badge" data-i18n="pricing.discount">50% OFF</div>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-days">00</div>
+                        <div class="countdown-label" data-i18n="pricing.countdown.days">天</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-hours">00</div>
+                        <div class="countdown-label" data-i18n="pricing.countdown.hours">时</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-minutes">00</div>
+                        <div class="countdown-label" data-i18n="pricing.countdown.minutes">分</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-seconds">00</div>
+                        <div class="countdown-label" data-i18n="pricing.countdown.seconds">秒</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" data-i18n="pricing.free.title">免费版</h3>
+                        <div class="pricing-price">
+                            <span class="price-value">¥0</span>
+                            <span class="price-period" data-i18n="pricing.free.period">永久免费</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li data-i18n="pricing.free.feature1">基础视角记录功能</li>
+                            <li data-i18n="pricing.free.feature2">每天最多10分钟记录时长</li>
+                            <li data-i18n="pricing.free.feature3">基础编辑功能</li>
+                            <li data-i18n="pricing.free.feature4">最多分享给5位好友</li>
+                            <li data-i18n="pricing.free.feature5">基础视角探索功能</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="#download" class="btn btn-secondary btn-block" data-i18n="pricing.free.cta">立即下载</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card pricing-card-popular">
+                    <div class="popular-badge" data-i18n="pricing.popular-badge">最受欢迎</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" data-i18n="pricing.pro.title">专业版</h3>
+                        <div class="pricing-price">
+                            <span class="price-original">¥58</span>
+                            <span class="price-value">¥29</span>
+                            <span class="price-period" data-i18n="pricing.pro.period">每月</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li data-i18n="pricing.pro.feature1">无限视角记录时长</li>
+                            <li data-i18n="pricing.pro.feature2">高清视频质量</li>
+                            <li data-i18n="pricing.pro.feature3">全部编辑功能</li>
+                            <li data-i18n="pricing.pro.feature4">无限好友分享</li>
+                            <li data-i18n="pricing.pro.feature5">360度全景视角</li>
+                            <li data-i18n="pricing.pro.feature6">AR视角增强</li>
+                            <li data-i18n="pricing.pro.feature7">视角拼图功能</li>
+                            <li data-i18n="pricing.pro.feature8">视角时间轴</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="#subscribe-pro" class="btn btn-primary btn-block" data-i18n="pricing.pro.cta">立即订阅</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" data-i18n="pricing.family.title">家庭版</h3>
+                        <div class="pricing-price">
+                            <span class="price-original">¥128</span>
+                            <span class="price-value">¥64</span>
+                            <span class="price-period" data-i18n="pricing.family.period">每月</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li data-i18n="pricing.family.feature1">包含专业版全部功能</li>
+                            <li data-i18n="pricing.family.feature2">最多6个家庭成员账号</li>
+                            <li data-i18n="pricing.family.feature3">家庭视角共享库</li>
+                            <li data-i18n="pricing.family.feature4">家庭故事创建功能</li>
+                            <li data-i18n="pricing.family.feature5">家庭位置共享</li>
+                            <li data-i18n="pricing.family.feature6">高级隐私保护</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="#subscribe-family" class="btn btn-secondary btn-block" data-i18n="pricing.family.cta">立即订阅</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <p data-i18n="pricing.guarantee">7天无理由退款保证 | 随时可取消订阅</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title" data-i18n="faq.title">常见问题</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q1">
+                        PerspectiView 的视角记录会占用很多存储空间吗？
+                    </div>
+                    <div class="faq-answer" data-i18n="faq.a1">
+                        PerspectiView 采用智能压缩技术，优化视角记录的存储方式。同时，你可以选择将内容存储在云端，减少本地存储压力。专业版和家庭版用户可享受无限云存储空间。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q2">
+                        视角记录会消耗很多电量吗？
+                    </div>
+                    <div class="faq-answer" data-i18n="faq.a2">
+                        我们采用了低功耗模式，优化了电量消耗。你可以在设置中选择不同的记录质量，找到最适合你的平衡点。同时，应用支持智能录制，可在电量低时自动调整设置。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q3">
+                        我的隐私安全吗？其他人能看到我的所有视角记录吗？
+                    </div>
+                    <div class="faq-answer" data-i18n="faq.a3">
+                        你对每一条视角记录都有完全的控制权。默认情况下，所有记录都是私密的，只有你自己可以查看。只有当你主动选择分享时，其他人才能看到。你可以精确控制谁能看到你的内容，何时可以看到，以及可以看到多长时间。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q4">
+                        我可以在哪些设备上使用 PerspectiView？
+                    </div>
+                    <div class="faq-answer" data-i18n="faq.a4">
+                        PerspectiView 支持 iOS 和 Android 平台，适用于大多数智能手机和平板电脑。我们也在开发与智能眼镜兼容的版本，以提供更加便捷的视角记录体验。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q5">
+                        如何升级到专业版或家庭版？
+                    </div>
+                    <div class="faq-answer" data-i18n="faq.a5">
+                        在应用内点击"个人资料" -> "订阅计划"，选择你想要的订阅计划并完成支付即可。订阅立即生效，你可以马上享受高级功能。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q6">
+                        我可以将视角记录导出到其他应用吗？
+                    </div>
+                    <div class="faq-answer" data-i18n="faq.a6">
+                        是的，你可以将视角记录导出为标准视频或图片格式，方便在其他应用或平台上使用。专业版和家庭版用户可以导出更高质量的内容。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title" data-i18n="download.title">立即下载，开启全新视角</h2>
+            <p class="section-description" data-i18n="download.description">通过 PerspectiView，记录、分享和探索，重新认识你的世界</p>
+            <div class="download-buttons">
+                <a href="#" class="app-store-button">
+                    <i class="fab fa-apple"></i>
+                    <span>
+                        <small data-i18n="download.app-store.download-on">下载自</small>
+                        <strong data-i18n="download.app-store.title">App Store</strong>
+                    </span>
+                </a>
+                <a href="#" class="google-play-button">
+                    <i class="fab fa-google-play"></i>
+                    <span>
+                        <small data-i18n="download.google-play.get-it-on">下载自</small>
+                        <strong data-i18n="download.google-play.title">Google Play</strong>
+                    </span>
+                </a>
+            </div>
+            <div class="download-qr">
+                <div class="qr-code-container">
+                    <img src="img/qr-code.svg" alt="下载二维码" class="qr-code">
+                    <p data-i18n="download.scan-qr">扫描二维码下载</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 200 50" class="logo-svg">
+                        <path d="M20,10 C30,5 40,5 50,10 C60,15 70,15 80,10" stroke="#4A90E2" stroke-width="3" fill="none"/>
+                        <path d="M20,20 C30,15 40,15 50,20 C60,25 70,25 80,20" stroke="#50E3C2" stroke-width="3" fill="none"/>
+                        <path d="M20,30 C30,25 40,25 50,30 C60,35 70,35 80,30" stroke="#B8E986" stroke-width="3" fill="none"/>
+                        <text x="90" y="30" font-family="Arial" font-size="20" font-weight="bold" fill="#fff">Memory Capsule</text>
+                    </svg>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.product.title">产品</h4>
+                        <ul>
+                            <li><a href="#features" data-i18n="footer.product.features">功能</a></li>
+                            <li><a href="#pricing" data-i18n="footer.product.pricing">价格</a></li>
+                            <li><a href="#download" data-i18n="footer.product.download">下载</a></li>
+                            <li><a href="#" data-i18n="footer.product.updates">更新日志</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.company.title">公司</h4>
+                        <ul>
+                            <li><a href="#" data-i18n="footer.company.about">关于我们</a></li>
+                            <li><a href="#" data-i18n="footer.company.careers">招贤纳士</a></li>
+                            <li><a href="#" data-i18n="footer.company.press">媒体报道</a></li>
+                            <li><a href="#" data-i18n="footer.company.contact">联系我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.resources.title">资源</h4>
+                        <ul>
+                            <li><a href="#" data-i18n="footer.resources.blog">博客</a></li>
+                            <li><a href="#" data-i18n="footer.resources.tutorials">教程</a></li>
+                            <li><a href="#" data-i18n="footer.resources.community">社区</a></li>
+                            <li><a href="#" data-i18n="footer.resources.developers">开发者</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.legal.title">法律条款</h4>
+                        <ul>
+                            <li><a href="#" data-i18n="footer.legal.terms">使用条款</a></li>
+                            <li><a href="#" data-i18n="footer.legal.privacy">隐私政策</a></li>
+                            <li><a href="#" data-i18n="footer.legal.cookies">Cookie 政策</a></li>
+                            <li><a href="#" data-i18n="footer.legal.gdpr">GDPR 合规</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
+                    <a href="#" aria-label="Weibo"><i class="fab fa-weibo"></i></a>
+                </div>
+                <div class="copyright">
+                    <p data-i18n="footer.copyright">&copy; 2023 PerspectiView. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
